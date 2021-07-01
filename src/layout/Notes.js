@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Table from '../components/Table';
 import Notes from '../components/Notes';
 import NotesForm from '../components/NotesForm';
@@ -34,7 +34,7 @@ class NotesLayout extends React.Component {
 		return (
 			<div className='table-container'>
 				<Table
-					colum={this.state.columns}
+					column={this.state.columns}
 					body={
 						<Notes
 							hiddenRow={this.state.hiddenRow}
@@ -64,45 +64,4 @@ class NotesLayout extends React.Component {
 		);
 	}
 }
-
-// const NotesLayout = () => {
-// 	const [notesFormOpen, setNotesFormOpen] = useState(false);
-// 	const [tableTab, setTableTab] = useState('Active');
-// 	const [editData, setEditData] = useState({});
-// 	const [hiddenRow, setHiddenRow] = useState(-1)
-// 	const columns = ['Name', 'Created', 'Category', 'Comment', 'Dates'];
-
-// 	const handleOpenForm = () => {
-// 		setNotesFormOpen(true);
-// 	};
-
-// 	const handleCloseForm = () => {
-// 		setHiddenRow(-1)
-// 		setNotesFormOpen(false);
-// 	};
-// 	const handleCreateNotes = () => {
-// 		setEditData({})
-// 		handleOpenForm()
-// 	}
-// 	return (
-// 		<div className='table-container'>
-// 			<Table
-// 				colum={columns}
-// 				body={<Notes hiddenRow={hiddenRow} setHiddenRow={(index)=>setHiddenRow(index)} currentTab={tableTab} openEditForm={handleOpenForm} setEditData={setEditData} />}
-// 				withButtons={true}
-// 				changeTableTable={setTableTab}
-// 			/>
-// 			{notesFormOpen ? (
-// 				<div className='data-table'>
-// 					<NotesForm editData={editData} state={notesFormOpen} closeForm={handleCloseForm} />
-// 				</div>
-// 			) : null}
-
-// 			<div className='table-bottom-btn-container'>
-// 				<button onClick={handleCreateNotes}>Create Note</button>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
 export default NotesLayout;

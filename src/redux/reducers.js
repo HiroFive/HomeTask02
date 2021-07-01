@@ -124,12 +124,6 @@ const notesReducer = (state = initialState, action) => {
 			return state;
 	}
 };
-
-// const categoryReducer = (state = initialState.category, action) => {
-// 	return state;
-// };
-
 export const rootReducer = combineReducers({
 	notes: notesReducer,
-	// category: categoryReducer,
 });

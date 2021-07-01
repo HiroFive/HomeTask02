@@ -6,7 +6,7 @@ const SummaryLayout = () => {
 	const columns = ['Notes Category', 'Active', 'Archived'];
 	return (
 		<div className='table-container'>
-			<Table colum={columns} body={<Summary/>} />
+			<Table column={columns} body={<Summary/>} />
 		</div>
 	);
 };

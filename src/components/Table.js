@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Table = ({
-	colum,
+	column,
 	body,
 	withButtons,
 	changeTableTable,
@@ -10,7 +10,7 @@ const Table = ({
 		<div className='data-table'>
 			<div className='thead'>
 				<span className='tr'>
-					{colum.map((value, index) => (
+					{column.map((value, index) => (
 						<span className='th' key={index}>
 							{value}
 						</span>
