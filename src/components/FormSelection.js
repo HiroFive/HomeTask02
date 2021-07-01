@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 const RenderSelect = (props) => {
 	const { category, currentCategory, handleChange } = props;
+	console.log(currentCategory)
 	return (
 		<select value={currentCategory} onChange={handleChange}>
 			{category.map((item, index) =>

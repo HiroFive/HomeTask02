@@ -16,7 +16,7 @@ class NotesForm extends React.Component {
 				this.props.editData.created || new Date().toLocaleDateString('en-GB'),
 			content: this.props.editData.content || '',
 			date: this.props.editData.date || '',
-			category: this.props.editData.category || '', //change to this.props.category
+			category: this.props.editData.category || 'Task', //change to this.props.category
 			state: this.props.state,
 			closeForm: this.props.closeForm,
 		};
