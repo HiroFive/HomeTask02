@@ -9,7 +9,7 @@ import deleteOutlined from '@iconify-icons/ant-design/delete-outlined';
 import { deleteNotes, changeNotesStatus } from '../redux/actions';
 
 const Notes = (props) => {
-	const { notes, currentTab, setEditData, openEditForm, hiddenRow} = props;
+	const { notes, currentTab, setEditData, openEditForm, hiddenRow } = props;
 
 	const filteredNotes = notes.filter((note) => note.status === currentTab);
 
@@ -20,29 +20,46 @@ const Notes = (props) => {
 		props.changeStatus(notesId, status === 'Archived' ? 'Active' : 'Archived');
 	};
 	const handleEditNotes = (note) => {
-		setEditData(note)
-		openEditForm()
-	}
+		setEditData(note);
+		openEditForm();
+	};
 
 	return filteredNotes.map((note, index) => {
 		const { id, title, created, category, content, date, status } = note;
 		return (
-			<div className={hiddenRow === index ? 'hidden' :'tr'} key={index}>
+			<div className={hiddenRow === index ? 'hidden' : 'tr'} key={index}>
 				<span className='td row'>
 					<div className='avatar'>
 						{addAvatar(category)}
 						{title}
 					</div>
 				</span>
-				<span className='td row'><div className='row-item'>{created}</div></span>
-				<span className='td row'><div className='row-item'>{category}</div></span>
-				<span className='td row'><div className='row-item'>{content}</div></span>
-				<span className='td row'><div className='row-item'>{date}</div></span>
+				<span className='td row'>
+					<div className='row-item'>{created}</div>
+				</span>
+				<span className='td row'>
+					<div className='row-item'>{category}</div>
+				</span>
+				<span className='td row'>
+					<div className='row-item'>{content}</div>
+				</span>
+				<span className='td row'>
+					<div className='row-item'>{date}</div>
+				</span>
 				<span className='td row'>
 					<div className='btn-container'>
-						<button onClick={() => {handleEditNotes(note); props.setHiddenRow(index)}} className='delete-Notes-btn form-btn'>
-							<Icon className='btn-icon' icon={editIcon} />
-						</button>
+						{currentTab === 'Active' ? (
+							<button
+								onClick={() => {
+									handleEditNotes(note);
+									props.setHiddenRow(index);
+								}}
+								className='delete-Notes-btn form-btn'
+							>
+								<Icon className='btn-icon' icon={editIcon} />
+							</button>
+						) : null}
+
 						<button
 							onClick={() => handleStatusChange(id, status)}
 							className='archive-notes-btn form-btn'
